@@ -20,8 +20,19 @@ const Product = props => {
   return foundPrice.additionalPrice + basePrice;
   }
 
+  const dispConsole = e => {
+    e.preventDefault();
+    console.log('Summary');
+    console.log('=========');
+    console.log('Name:', title);
+    console.log('Price:', getPrice());
+    console.log('Size:', currentSize);
+    console.log('Color:', currentColor);
+
+  }
+
   return (
-    <article className={styles.product}>
+    <article className={styles.product} onSubmit={dispConsole}>
       <div className={styles.imageContainer}>
         <img 
           className={styles.image}
