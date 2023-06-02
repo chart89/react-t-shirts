@@ -10,12 +10,16 @@ const Product = props => {
 
   const [currentColor, setCurrentColor] = useState(colors[0]);
   const [currentSize, setCurrentSize] = useState(sizes[0].name[0]);
-  console.log(currentSize);
 
   const prepareColorClassName = color => {
     return styles['color' + color[0].toUpperCase() + color.substr(1).toLowerCase()];
   }
-  
+
+  const getPrice = () => {
+  const foundPrice = sizes.find(size => size.name === currentSize);
+  return foundPrice.additionalPrice + basePrice;
+  }
+
   return (
     <article className={styles.product}>
       <div className={styles.imageContainer}>
@@ -27,7 +31,7 @@ const Product = props => {
       <div>
         <header>
           <h2 className={styles.name}>{title}</h2>
-          <span className={styles.price}>{basePrice}$</span>
+          <span className={styles.price}>{getPrice()}$</span>
         </header>
         <form>
           <div className={styles.sizes}>
