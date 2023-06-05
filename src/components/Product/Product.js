@@ -19,13 +19,14 @@ const Product = props => {
 
   const dispConsole = e => {
     e.preventDefault();
+    console.log('');
     console.log('Summary');
     console.log('=========');
     console.log('Name:', title);
     console.log('Price:', getPrice());
     console.log('Size:', currentSize);
     console.log('Color:', currentColor);
-
+    console.log('');
   }
 
   return (
@@ -39,12 +40,12 @@ const Product = props => {
           <span className={styles.price}>{getPrice()}$</span>
         </header>
         <ProductForm 
-        sizes={sizes} 
-        currentColor={currentColor} 
-        setCurrentColor={setCurrentColor} 
-        colors={colors} 
-        currentSize={currentSize} 
-        setCurrentSize={setCurrentSize}/>
+          sizes={sizes} 
+          currentColor={currentColor} 
+          setCurrentColor={setCurrentColor} 
+          colors={colors} 
+          currentSize={currentSize} 
+          setCurrentSize={setCurrentSize}/>
       </div>
     </article>
   )

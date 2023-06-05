@@ -1,5 +1,6 @@
 import styles from '../Product/Product.module.scss';
 import clsx from 'clsx';
+import PropTypes from 'prop-types';
 
 const OptionSize = ({sizes, currentSize, setCurrentSize}) => {
 
@@ -19,3 +20,12 @@ const OptionSize = ({sizes, currentSize, setCurrentSize}) => {
 }
 
 export default OptionSize;
+
+OptionSize.propTypes = {
+  sizes: PropTypes.arrayOf(PropTypes.shape({
+    name: PropTypes.string,
+    additionalPrice: PropTypes.number,
+  })).isRequired,
+  currentSize: PropTypes.string.isRequired,
+  setCurrentSize: PropTypes.func.isRequired,
+}
